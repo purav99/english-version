@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Darbia</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#D4AF37',
+            dark: '#0F0F0F',
+            light: '#F9F9F9',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Alpine.js for dropdowns -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      background-image:
+        linear-gradient(to right, rgba(212,175,55,0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(212,175,55,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    #preloader {
+      background: white;
+      color: #D4AF37;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="text-dark">
+  <!-- Preloader -->
+  <div id="preloader">Darbia Loading...</div>
+
+  <!-- Navbar -->
+  <header class="bg-white text-dark shadow-md sticky top-0 z-50" x-data="{ open: false }">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="text-2xl font-bold text-gold">Darbia</h1>
+    
+      <!-- Nav Links -->
+      <nav class="hidden md:flex space-x-6 items-center">
+        <a href="index.html" class="hover:text-gold transition">Home</a>
+        <a href="about.html" class="hover:text-gold transition">About Us</a>
+
+        <!-- Accounting Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-gold transition focus:outline-none">Accounting ▾</button>
+          <div class="absolute left-0 mt-2 w-64 hidden group-hover:block bg-white text-dark border border-gold shadow-lg z-50">
+            <a href="/views/accounting/outsourced-accounting.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">Outsourced Accounting</a>
+            <a href="/views/accounting/CFO-Services.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">CFO Services</a>
+            <a href="/views/accounting/Reconciliation & Backlog Accounting.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">Reconciliation</a>
+          </div>
+        </div>
+
+        <!-- Tax Dropdown -->
+        <div class="relative group">
+          <button class="hover:text-gold transition focus:outline-none">Tax ▾</button>
+          <div class="absolute left-0 mt-2 w-48 hidden group-hover:block bg-white text-dark border border-gold shadow-lg z-50">
+            <a href="/views/tax/vat.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">VAT</a>
+            <a href="/views/tax/corporate.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">Corporate Tax</a>
+            <a href="/views/tax/trc.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">TRC</a>
+          </div>
+        </div>
+
+        <a href="Other services.html" class="hover:text-gold transition">Other Services</a>
+        <a href="contact.html" class="text-gold font-semibold underline underline-offset-4">Contact</a>
+      </nav>
+
+       <!-- Mobile Menu Toggle -->
+      <button id="menuToggle" class="md:hidden text-gold focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden px-4 py-4 bg-white border-t border-gold space-y-2">
+      <a href="/views/index.html" class="block text-dark hover:text-gold">Home</a>
+      <a href="/views/about.html" class="block text-dark hover:text-gold">About Us</a>
+      <details class="text-dark">
+        <summary class="cursor-pointer py-2">Accounting</summary>
+        <div class="ml-4 space-y-1">
+          <a href="/views/accounting/outsourced-accounting.html" class="block hover:text-gold">Outsourced Accounting</a>
+          <a href="/views/accounting/CFO-Services.html" class="block hover:text-gold">CFO Services</a>
+          <a href="/views/accounting/Reconciliation & Backlog Accounting.html" class="block hover:text-gold">Reconciliation</a>
+        </div>
+      </details>
+      <details class="text-dark">
+        <summary class="cursor-pointer py-2">Tax</summary>
+        <div class="ml-4 space-y-1">
+          <a href="/views/tax/vat.html" class="block hover:text-gold">VAT</a>
+          <a href="/views/tax/corporate.html" class="block hover:text-gold">Corporate Tax</a>
+          <a href="/views/tax/trc.html" class="block hover:text-gold">TRC</a>
+        </div>
+      </details>
+      <a href="/views/Other services.html" class="block text-dark hover:text-gold">Other Services</a>
+      <a href="/views/contact.html" class="block text-dark hover:text-gold">Contact</a>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="py-20 px-6 md:px-16">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-gold mb-6">Get in Touch</h2>
+      <p class="text-gray-600 mb-12">Have questions or want to work with us? We'd love to hear from you.</p>
+
+      <form action="https://formspree.io/f/mqkrljzq" method="POST" class="space-y-6 bg-white p-8 rounded-xl shadow-lg border border-gold">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold" />
+          <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold" />
+        </div>
+        <input type="text" name="subject" placeholder="Subject" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold" />
+        <textarea name="message" rows="5" placeholder="Your Message" required class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gold"></textarea>
+        <button type="submit" class="bg-gold text-white px-6 py-3 rounded-md hover:bg-yellow-600 transition">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Contact Info Cards -->
+  <section class="py-16 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+      <div class="bg-white p-6 rounded-xl shadow border border-gold">
+        <h4 class="text-xl font-semibold text-gold mb-2">Phone</h4>
+        <p class="text-gray-700">+971 50 123 4567</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow border border-gold">
+        <h4 class="text-xl font-semibold text-gold mb-2">Email</h4>
+        <p class="text-gray-700">info@darbia.com</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow border border-gold">
+        <h4 class="text-xl font-semibold text-gold mb-2">Address</h4>
+        <p class="text-gray-700">Dubai, UAE<br />Business Bay, XYZ Tower</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Map Embed -->
+  <section class="py-10 px-4">
+    <div class="max-w-6xl mx-auto rounded-xl overflow-hidden shadow-lg border border-gold">
+      <iframe class="w-full h-96" frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.8104747188476!2d55.27437757535896!3d25.197201431616034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f433c8c66d4b1%3A0x5d8e55515a46080c!2sBusiness%20Bay%2C%20Dubai!5e0!3m2!1sen!2sae!4v1710000000000"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gold text-white py-6 mt-12">
+    <div class="max-w-6xl mx-auto text-center">
+      <p>&copy; 2025 Darbia. All rights reserved.</p>
+    </div>
+  </footer>
+<!-- Scripts -->
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('preloader').style.display = 'none';
+    });
+
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

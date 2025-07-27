@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ mobileMenu: false, accOpen: false, taxOpen: false }" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CFO Services | Darbia</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#D4AF37',
+            dark: '#0F0F0F',
+            light: '#F9F9F9',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Alpine.js -->
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-image: url("https://www.transparenttextures.com/patterns/symphony.png");
+    }
+    #preloader {
+      background: white;
+      color: #D4AF37;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .underline-gold::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: #D4AF37;
+      margin: 8px auto 0;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+
+<body class="bg-light text-dark">
+
+  <!-- Preloader -->
+  <div id="preloader">Darbia Loading...</div>
+
+  <!-- Navbar -->
+  <header class="bg-white text-dark shadow-md sticky top-0 z-50" x-data>
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-gold">Darbia</h1>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-6 items-center">
+        <a href="/views/index.html" class="hover:text-gold transition">Home</a>
+        <a href="/views/about.html" class="hover:text-gold transition">About Us</a>
+
+        <div class="relative group">
+          <button class="hover:text-gold">Accounting ▾</button>
+          <div class="absolute hidden group-hover:block bg-white text-dark border border-gold shadow-lg w-64 z-50">
+            <a href="outsourced-accounting.html" class="block px-4 py-2 hover:bg-gold hover:text-white">Outsourced Accounting</a>
+            <a href="CFO-Services.html" class="block px-4 py-2 hover:bg-gold hover:text-white">CFO Services</a>
+            <a href="Reconciliation & Backlog Accounting.html" class="block px-4 py-2 hover:bg-gold hover:text-white">Reconciliation</a>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <button class="hover:text-gold">Tax ▾</button>
+          <div class="absolute hidden group-hover:block bg-white text-dark border border-gold shadow-lg w-48 z-50">
+            <a href="/views/tax/vat.html" class="block px-4 py-2 hover:bg-gold hover:text-white">VAT</a>
+            <a href="/views/tax/corporate.html" class="block px-4 py-2 hover:bg-gold hover:text-white">Corporate Tax</a>
+            <a href="/views/tax/trc.html" class="block px-4 py-2 hover:bg-gold hover:text-white">TRC</a>
+          </div>
+        </div>
+
+        <a href="/views/Other services.html" class="hover:text-gold">Other Services</a>
+        <a href="/views/contact.html" class="hover:text-gold">Contact</a>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="menuToggle" class="md:hidden text-gold focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden px-4 py-4 bg-white border-t border-gold space-y-2">
+      <a href="/views/index.html" class="block text-dark hover:text-gold">Home</a>
+      <a href="/views/about.html" class="block text-dark hover:text-gold">About Us</a>
+      <details class="text-dark">
+        <summary class="cursor-pointer py-2">Accounting</summary>
+        <div class="ml-4 space-y-1">
+          <a href="/views/accounting/outsourced-accounting.html" class="block hover:text-gold">Outsourced Accounting</a>
+          <a href="/views/accounting/CFO-Services.html" class="block hover:text-gold">CFO Services</a>
+          <a href="/views/accounting/Reconciliation & Backlog Accounting.html" class="block hover:text-gold">Reconciliation</a>
+        </div>
+      </details>
+      <details class="text-dark">
+        <summary class="cursor-pointer py-2">Tax</summary>
+        <div class="ml-4 space-y-1">
+          <a href="/views/tax/vat.html" class="block hover:text-gold">VAT</a>
+          <a href="/views/tax/corporate.html" class="block hover:text-gold">Corporate Tax</a>
+          <a href="/views/tax/trc.html" class="block hover:text-gold">TRC</a>
+        </div>
+      </details>
+      <a href="/views/Other services.html" class="block text-dark hover:text-gold">Other Services</a>
+      <a href="/views/contact.html" class="block text-dark hover:text-gold">Contact</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+<section class="py-16 bg-white relative">
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(212,175,55,0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgba(212,175,55,0.07)_1px,transparent_1px)] bg-[size:40px_40px] z-0"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <!-- Title -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gold">What Our CFOs Deliver</h2>
+      <p class="text-gray-600 mt-2">Data-driven, board-level expertise tailored to your growing enterprise.</p>
+    </div>
+
+    <!-- Services Cards -->
+    <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div class="bg-white shadow-lg rounded-2xl p-6 border border-yellow-100 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-gold mb-3">Financial Strategy</h4>
+        <p class="text-gray-700">Plan your financial future with clarity. We align operations with short & long-term goals.</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 border border-yellow-100 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-gold mb-3">Budgeting & Forecasting</h4>
+        <p class="text-gray-700">Develop realistic budgets and forecasts that guide your decisions with confidence.</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 border border-yellow-100 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-gold mb-3">KPI Monitoring</h4>
+        <p class="text-gray-700">Track the right financial and operational metrics to stay ahead of risks and opportunities.</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 border border-yellow-100 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-gold mb-3">Cash Flow Management</h4>
+        <p class="text-gray-700">Ensure liquidity and optimize your working capital for smoother operations.</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 border border-yellow-100 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-gold mb-3">Stakeholder Reporting</h4>
+        <p class="text-gray-700">Professional reporting for banks, investors, or boards with actionable insights.</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 border border-yellow-100 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-gold mb-3">Growth Readiness</h4>
+        <p class="text-gray-700">Get your business investor-ready and scale operations with minimal financial friction.</p>
+      </div>
+
+      <!-- Additional Cards -->
+      <div class="bg-white shadow-lg rounded-2xl p-6 border border-yellow-100 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-gold mb-3">Cost Optimization</h4>
+        <p class="text-gray-700">Identify and reduce hidden costs without compromising on quality or growth.</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 border border-yellow-100 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-gold mb-3">M&A Support</h4>
+        <p class="text-gray-700">Navigate mergers, acquisitions, or exits with expert financial modeling and due diligence.</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 border border-yellow-100 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-gold mb-3">Risk Management</h4>
+        <p class="text-gray-700">Proactively manage financial risks, from compliance issues to market volatility.</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 border border-yellow-100 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-gold mb-3">Technology Integration</h4>
+        <p class="text-gray-700">Implement finance tools and ERPs that streamline reporting and data analytics.</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 border border-yellow-100 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-gold mb-3">Compliance & Controls</h4>
+        <p class="text-gray-700">Strengthen your internal controls and stay compliant with industry regulations.</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 border border-yellow-100 hover:shadow-xl transition">
+        <h4 class="text-xl font-semibold text-gold mb-3">Performance Dashboards</h4>
+        <p class="text-gray-700">Gain real-time financial visibility through intuitive dashboards and visual analytics.</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 text-center">
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Whether you're preparing for funding rounds, restructuring, or scaling, Darbia’s part-time CFOs bring elite financial insight at a fraction of the cost.
+      </p>
+      <div class="mt-8">
+        <a href="/views/contact.html" class="inline-block px-6 py-3 bg-gold text-white font-semibold rounded-full hover:bg-yellow-600 transition">
+          Book a Free CFO Consultation
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="bg-gold text-white py-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <p>&copy; 2025 Darbia. All rights reserved.</p>
+    </div>
+  </footer>
+
+ <!-- Scripts -->
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('preloader').style.display = 'none';
+    });
+
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
