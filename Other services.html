@@ -34,7 +34,7 @@
     }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
+      background-color: #f4f1eb;
       background-image: url("https://www.transparenttextures.com/patterns/symphony.png");
       background-repeat: repeat;
       background-size: auto;
@@ -51,43 +51,55 @@
   </style>
 </head>
 
-<body class="bg-light text-dark">
+<body class="bg-#f4f1eb text-dark">
 
-  <!-- Navbar -->
-  <header class="bg-white text-dark shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-      <h1 class="text-2xl font-bold text-gold">Darbia</h1>
+ <!-- Preloader -->
+<div id="preloader" class="fixed inset-0 bg-#f4f1eb flex items-center justify-center text-xl font-semibold z-50">
+  Loading...
+</div>
 
-      <!-- Desktop Menu -->
-      <nav class="hidden md:flex space-x-6 items-center">
-        <a href="index.html" class="hover:text-gold transition">Home</a>
-        <a href="about.html" class="hover:text-gold transition">About Us</a>
+ <header class="bg-[#f4f1eb] text-dark shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+    
+    <!-- Left: Logo -->
+    <div class="flex-shrink-0">
+      <img src="pogo.png" alt="Darbia Logo" class="h-20 w-auto"> <!-- adjust h-20 to increase/decrease logo size -->
+    </div>
 
-        <!-- Accounting Dropdown -->
-        <div class="relative group">
-          <button class="hover:text-gold transition">Accounting ▾</button>
-          <div class="absolute left-0 mt-2 w-64 hidden group-hover:block bg-white text-dark border border-gold shadow-lg z-50">
-            <a href="outsourced-accounting.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">Outsourced Accounting</a>
-            <a href="CFO-Services.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">CFO Services</a>
-            <a href="Reconciliation & Backlog Accounting.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">Reconciliation</a>
-          </div>
+    <!-- Center: Menu -->
+    <nav class="hidden md:flex flex-1 justify-center items-center space-x-6 text-lg">
+      <a href="index.html" class="hover:text-gold transition">Home</a>
+      <a href="about.html" class="hover:text-gold transition">About Us</a>
+
+      <div class="relative group">
+        <button class="hover:text-gold transition">Accounting ▾</button>
+        <div class="absolute left-0 mt-2 w-64 hidden group-hover:block bg-white text-dark border border-gold shadow-lg z-50">
+          <a href="outsourced-accounting.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">Outsourced Accounting</a>
+          <a href="CFO-Services.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">CFO Services</a>
+          <a href="Reconciliation & Backlog Accounting.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">Reconciliation</a>
         </div>
+      </div>
 
-        <!-- Tax Dropdown -->
-        <div class="relative group">
-          <button class="hover:text-gold transition">Tax ▾</button>
-          <div class="absolute left-0 mt-2 w-48 hidden group-hover:block bg-white text-dark border border-gold shadow-lg z-50">
-            <a href="vat.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">VAT</a>
-            <a href="corporate.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">Corporate Tax</a>
-            <a href="trc.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">TRC</a>
-          </div>
+      <div class="relative group">
+        <button class="hover:text-gold transition">Tax ▾</button>
+        <div class="absolute left-0 mt-2 w-48 hidden group-hover:block bg-white text-dark border border-gold shadow-lg z-50">
+          <a href="vat.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">VAT</a>
+          <a href="corporate.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">Corporate Tax</a>
+          <a href="trc.html" class="block px-4 py-2 hover:bg-gold hover:text-white transition">TRC</a>
         </div>
+      </div>
 
-        <a href="Other services.html" class="text-gold font-semibold underline underline-offset-4">Other Services</a>
-        <a href="contact.html" class="hover:text-gold transition">Contact</a>
-      </nav>
+      <a href="Other services.html" class="hover:text-gold transition">Other Services</a>
+      <a href="contact.html" class="hover:text-gold transition">Contact</a>
+    </nav>
 
-      <!-- Mobile Menu Toggle -->
+   <!-- Right: Apply Online -->
+<div class="hidden md:block">
+  <a href="contact.html" class="bg-black text-white font-bold text-lg px-6 py-3 rounded-lg shadow hover:bg-gray-800 transition">
+    Apply Online
+  </a>
+</div>
+<!-- Mobile Menu Toggle -->
       <button id="menuToggle" class="md:hidden text-gold focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
@@ -120,16 +132,24 @@
     </div>
   </header>
   <!-- Coming Soon Section -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-white">
-    <h2 class="text-5xl font-bold text-gold mb-4 underline-gold">Our Services</h2>
-    <p class="text-gray-700 text-lg max-w-xl mb-8">
+<section 
+  class="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-cover bg-center bg-no-repeat relative"
+  style="background-image: url('bdconatct1.jpg');"
+>
+  <div class="absolute inset-0 bg-black/40"></div> <!-- Optional dark overlay for contrast -->
+  
+  <div class="relative z-10">
+    <h2 class="text-5xl font-bold text-gold mb-4 underline-gold">Other Services</h2>
+    <p class="text-white text-lg max-w-xl mb-8">
       We are working on expanding our offerings to serve you better.
       A comprehensive list of our financial and advisory services will be available soon.
     </p>
     <span class="px-6 py-3 bg-gold text-white font-semibold rounded-full shadow hover:shadow-lg transition">
       Coming Soon...
     </span>
-  </section>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer class="bg-gold text-white py-6">
