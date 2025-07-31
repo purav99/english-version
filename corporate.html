@@ -66,10 +66,6 @@
 </head>
 
 <body class="bg-[#f4f1eb] text-dark">
-   <!-- Preloader -->
-<div id="preloader" class="fixed inset-0 bg-[#f4f1eb] flex items-center justify-center text-xl font-semibold z-50">
-  Loading...
-</div>
 
  <header class="bg-[#f4f1eb] text-dark shadow-md sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
@@ -112,15 +108,7 @@
     Apply Online
   </a>
 </div>
-    
-<!-- Mobile Menu Toggle -->
-    <button id="menuToggle" class="md:hidden text-gold focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-  </div>
-   
+
     <!-- Mobile Dropdown -->
     <div id="mobileMenu" class="hidden md:hidden px-4 py-4 bg-white border-t border-gold space-y-2">
       <a href="index.html" class="block text-dark hover:text-gold">Home</a>
@@ -146,23 +134,23 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative py-20 bg-[#f4f1eb] border-t-4 border-gold overflow-hidden">
-    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold text-gold mb-4 underline-gold">Corporate Tax</h2>
-      <p class="text-lg text-gray-700">
-        Darbia offers full-spectrum corporate tax services, helping you stay compliant and strategically optimized under UAE law.
-      </p>
-    </div>
-  </section>
+ <section 
+  class="py-16 bg-cover bg-center relative"
+  style="background-image: url('bgconatct6.jpg');"
+>
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black/40 z-0"></div>
 
-  <!-- Services Section (Responsive as is) -->
-  <section class="py-16 bg-[#f4f1eb] relative">
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gold">Corporate Tax</h2>
+        <p class="text-white mt-2">Darbia offers full-spectrum corporate tax services, helping you stay compliant and strategically optimized under UAE law.</p>
+      </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-6">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold text-gold">Our Corporate Tax Solutions</h2>
-        <p class="text-gray-600 mt-2">Reliable support across all stages of UAE Corporate Tax compliance and planning.</p>
+        <p class="text-white mt-2">Reliable support across all stages of UAE Corporate Tax compliance and planning.</p>
       </div>
 
       <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -195,7 +183,7 @@
 
       <!-- CTA -->
       <div class="mt-16 text-center">
-        <p class="text-gray-600 max-w-2xl mx-auto">
+        <p class="text-white max-w-2xl mx-auto">
           Let Darbia handle your corporate tax while you focus on growing your business.
         </p>
         <div class="mt-8">
